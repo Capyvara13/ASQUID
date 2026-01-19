@@ -1,0 +1,8 @@
+.root {
+    --aqua-blue: #15C7F4;   /*Title blue*/
+    --aqua-green: #22C3C3; /*Second title color*/
+    --squid-blue: #3D4586; /*Icon blue*/
+    --nav-text: #5D687B; /*Nav Bar text*/
+    --light-text: #94A3B8; /*Content text*/
+    --dark-blue: #0F153B; /*Background*/
+}
