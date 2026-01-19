@@ -1,0 +1,28 @@
+.elemento-revelar {
+  /* Estado inicial: invisível e levemente abaixo */
+  opacity: 0;
+  transform: translateY(50px);
+
+  /* Define que a animação é baseada na visualização do elemento */
+  view-timeline-name: --revelar;
+  view-timeline-axis: block;
+
+  /* Aplica a animação */
+  animation-name: aparecer;
+  animation-fill-mode: both;
+  
+  /* Faz a animação ocorrer apenas enquanto o elemento entra na tela */
+  animation-timeline: --revelar;
+  animation-range: entry 10% cover 40%;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
