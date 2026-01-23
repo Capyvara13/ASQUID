@@ -11,10 +11,12 @@
 
 <body>
     <nav>
-        <div class="icon">
-            <img src="../assets/images/ico/S-squid.ico" alt="S.Q.U.I.D Logo">
-            <p id="icon-text">S.Q.U.I.D</p>
-        </div>
+        <a href="#main" style="text-decoration: none;">
+            <div class="icon">
+                <img src="../assets/images/ico/S-squid.ico" alt="S.Q.U.I.D Logo">
+                <p id="icon-text">S.Q.U.I.D</p>
+            </div>
+        </a>
         <ul class="nav-links">
             <li class="nav-text"><a href="#whats-section">O que é</a></li>
             <li class="nav-text"><a href="#Diferenciais">Diferenciais</a></li>
@@ -25,7 +27,7 @@
         </ul>
     </nav>
 
-    <main>
+    <main id="main">
         <section class="landing-section">
             <div class="landing-image">
                 <img src="../assets/images/ico/S squid.png" alt="Imagem ilustrativa do S.Q.U.I.D">
@@ -41,10 +43,13 @@
                     <p>Sistema híbrido de segurança que combina criptografia pós-quântica, simulação probabilística e
                         inteligência artificial para proteger seus dados contra ameaças quânticas.</p>
                     <div>
-                        <a href="#whats-section"><button id="button1"><img src="../assets/images/landingPage/bolt.svg" alt="Bolt"><p>Conhecer o
-                                Projeto</p></button></a>
-                        <a href="https://github.com/Capyvara13/SQUID.git"><button id="button2"><img src="../assets/images/landingPage/github.ico"
-                                    alt="Lock">GitHub</button></a>
+                        <a href="#whats-section"><button id="button1"><img src="../assets/images/landingPage/bolt.svg"
+                                    alt="Bolt">
+                                <p>Conhecer o
+                                    Projeto</p>
+                            </button></a>
+                        <a href="https://github.com/Capyvara13/SQUID.git"><button id="button2"><img
+                                    src="../assets/images/landingPage/github.ico" alt="Lock">GitHub</button></a>
                     </div>
                 </div>
                 <div id="statistics">
@@ -63,40 +68,40 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="whats-section">
             <div id="whats-content">
                 <div id="opening">
-                    <h2>O que é o <span>SQUID</span>?</h2>
+                    <h2 style="color: white;">O que é o <span style="color: #15C7F4;">SQUID</span>?</h2>
                     <p>Um sistema de segurança de dados baseado em simulação quântica Inspirada e criptografia
                         pós-quântica, projetado para aumentar a imprevisibilidade e resistência contra ataques quânticos
                         e hackers.</p>
                 </div>
                 <div id="cards">
                     <div class="card">
-                        <div><img src="../assets/images/landingPage/key.svg" alt="key"></div>
-                        <div>
+                        <div class="imgDiv"><img src="../assets/images/landingPage/key.svg" alt="key"></div>
+                        <div class="cardTextDiv">
                             <h4>Criptografia Pós-Quântica</h4>
                             <p>Algoritmos Kyber e Dilithium resistentes a ataques de computadores quânticos.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div><img src="../assets/images/landingPage/brain.svg" alt="Brain"></div>
-                        <div>
+                        <div class="imgDiv"><img src="../assets/images/landingPage/brain.svg" alt="Brain"></div>
+                        <div class="cardTextDiv">
                             <h4>Simulação Quântica Inspirada</h4>
                             <p>IA que gera estados probabilísticos para ofuscação dinâmica dos dados.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div><img src="../assets/images/landingPage/tree.svg" alt="Auditoria"></div>
-                        <div>
+                        <div class="imgDiv"><img src="../assets/images/landingPage/tree.svg" alt="Auditoria"></div>
+                        <div class="cardTextDiv">
                             <h4>Auditoria via Merkle Trees</h4>
                             <p>Rastreabilidade completa e validação de integridade dos dados.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div><img src="../assets/images/landingPage/hibrid.svg" alt="Hibrid"></div>
-                        <div>
+                        <div class="imgDiv"><img src="../assets/images/landingPage/hibrid.svg" alt="Hibrid"></div>
+                        <div class="cardTextDiv">
                             <h4>Sistema Híbrido</h4>
                             <p>Integração entre Java e Python para máxima segurança e flexibilidade.</p>
                         </div>
@@ -104,7 +109,7 @@
                 </div>
             </div>
         </section>
-        <!--
+
         <section id="Diferenciais">
             <div>
                 <h2>Diferenciais do <span>SQUID</span></h2>
@@ -178,6 +183,7 @@
             </table>
         </section>
 
+        <!--
         <section id="ComoFunciona">
             <div>
                 <h2>Como o <span>SQUID</span> Funciona</h2>

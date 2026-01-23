@@ -1,4 +1,4 @@
-.root {
+:root{
     --aqua-blue: #15C7F4;   /*Title blue*/
     --aqua-green: #22C3C3; /*Second title color*/
     --squid-blue: #3D4586; /*Icon blue*/
@@ -15,12 +15,12 @@
 }
 
 body {
-    background-color: #0F153D;
+    background-color: var(--dark-blue);
 }
 
 /* Navigation Bar */
 nav {
-    background-color: rgba(0, 7, 25, 0.922);
+    background-color: #000719eb;
     position: fixed;
     backdrop-filter: blur(5px);
     width: 100%;
@@ -37,7 +37,7 @@ nav img {
 }
 
 #icon-text {
-    color: #3D4586;
+    color: var(--squid-blue);
     font-size: 1.2em;
     font-weight: bold;
     cursor: default;
@@ -283,4 +283,117 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#whats-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    padding: 4em;
+}
+
+#whats-content img {
+    width: 25em;
+}
+
+#opening {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    max-width: 40em;
+}
+
+#opening h2 {
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+#opening h2 span {
+    color: #15C7F4;
+    text-align: center;
+}
+
+#opening p {
+    color: #94A3B8;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+#opening button {
+    margin-top: 1em;
+    background: linear-gradient(90deg, #14B8D4 0%, #22c395 100%);
+    border: none;
+    padding: 0.8em 1.2em;
+    border-radius: 0.8em;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 15vw;
+    height: 6vh;
+    color: black;
+}
+
+#opening button:hover {
+    filter: brightness(1.1);
+    scale: 1.05;
+    box-shadow: #14B8D4 0px 0px 15em
+}
+
+#cards {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: center;
+    width: 90vw;
+    align-items: center;
+}
+
+.card {
+    background-color: #0B1022;
+    border-radius: 1em;
+    border: solid 0.1em #151C30;
+    width: 30em;
+    height: 15em;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1.2em;
+    gap: 1.5em;
+    box-shadow: 0px 0px 15px #00000050;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 4em;
+    background-color: #0B2339;
+    border-radius: 1em;
+}
+
+.card img {
+    height: 2.5em;
+}
+
+.cardTextDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.cardTextDiv h4 {
+    color: white;
+    font-size: 1.2em;
+}
+
+.cardTextDiv p {
+    color: #94A3B8;
+    font-size: 0.9em;
+    line-height: 1.4em;
 }
