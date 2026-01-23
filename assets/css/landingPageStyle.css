@@ -11,13 +11,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: JetBrains Mono, monospace;
 }
 
 body {
     background-color: #0F153D;
 }
 
+/* Navigation Bar */
 nav {
     background-color: rgba(0, 7, 25, 0.922);
     position: fixed;
@@ -28,6 +29,7 @@ nav {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    z-index: 10;
 }
 
 nav img {
@@ -72,4 +74,213 @@ nav ul {
 .nav-text a:hover {
     color: #ffffff;
     transition: 0.3s;
+}
+
+/* Landing Section */
+.landing-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 2em 5em;
+    gap: 4em;
+    background-color: #0E1535;
+}
+
+/* Container da imagem */
+.landing-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* A Imagem com flutuação e brilho */
+.landing-image img {
+    width: 15em;
+    z-index: 1;
+    /* Aplica as duas animações ao mesmo tempo */
+    animation: float 6s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
+    /* Filtro para o brilho externo (glow) baseado na cor aqua-blue */
+    filter: drop-shadow(0 0 15px #14B8D4);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-25px);
+        /* Flutua um pouco mais */
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        /* Estado inicial sutil */
+        filter: drop-shadow(0 0 8px rgba(21, 199, 244, 0.25)) drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+    }
+
+    50% {
+        /* Meio termo: brilho visível, mas sem excesso */
+        filter: drop-shadow(0 0 20px rgba(21, 199, 244, 0.6)) drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+    }
+}
+
+.landing-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.tag1 {
+    background-color: #14b7d41f;
+    border: solid 0.1vh #15C7F4;
+    height: 6vh;
+    width: 18vw;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    color: #15C7F4;
+}
+
+.tag1 img {
+    height: 1.8em;
+}
+
+#text-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+#text-div h1 {
+    color: #15C7F4;
+    filter: drop-shadow(0px 0px 20px #15C7F4);
+    font-size: 4em;
+}
+
+#text-div h2 {
+    color: #9BA8B4;
+    font-size: 1.5em;
+    font-family: JetBrains Mono, monospace;
+}
+
+#text-div p {
+    color: #9BA8B4;
+    font-size: 1em;
+}
+
+#text-div div {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+#text-div div a {
+    text-decoration: none;
+}
+
+#button1 {
+    transition: 0.3s;
+    background: linear-gradient(90deg, #14B8D4 0%, #22c395 100%);
+    border: none;
+    padding: 0.8em 1.2em;
+    border-radius: 0.8em;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    width: 20vw;
+    height: 7vh;
+}
+
+#button1 img {
+    height: 1.4em;
+}
+
+#button1 p {
+    text-decoration: none;
+    color: black; 
+    font-size: 1.2em;
+}
+
+#button2 {
+    transition: 0.3s;
+    background: transparent;
+    border: solid 2px #15C7F4;
+    color: white;
+    padding: 0.8em 1.2em;
+    border-radius: 0.8em;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    width: 10vw;
+    height: 7vh;
+    text-decoration: none;
+}
+
+#button2 img {
+    height: 1.4em;
+}
+
+#button1:hover {
+    filter: brightness(1.1);
+    scale: 1.05;
+    box-shadow: #14B8D4 0px 0px 15em
+}
+
+#button2:hover {
+    background-color: #15C7F4;
+    scale: 1.05;
+}
+
+#statistics {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+    margin-top: 2em;
+}
+
+.statistic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.statistic h3 {
+    color: #15C7F4;
+    font-size: 2.3em;
+}
+
+.statistic p {
+    color: #9BA8B4;
+    font-size: 1em;
+}
+
+/*whats-section*/
+#whats-section {
+    background-color: #0C112B;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
