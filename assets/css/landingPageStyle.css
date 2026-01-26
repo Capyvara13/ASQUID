@@ -1,18 +1,3 @@
-:root{
-    --aqua-blue: #15C7F4;   /*Title blue*/
-    --aqua-green: #22C3C3; /*Second title color*/
-    --squid-blue: #3D4586; /*Icon blue*/
-    --nav-text: #5D687B; /*Nav Bar text*/
-    --light-text: #94A3B8; /*Content text*/
-    --dark-blue: #0F153B; /*Background*/
-    
-    --bg-color: #050a12;
-    --card-bg: #0a111e;
-    --accent-cyan: #00bcd4;
-    --text-gray: #a0aec0;
-    --border-color: #1a2638;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -20,13 +5,119 @@
     font-family: JetBrains Mono, monospace;
 }
 
-body {
-    background-color: var(--dark-blue);
+/* Definição de Cores - LIGHT MODE PADRÃO */
+/* Definição de Cores Centralizada */
+:root {
+    /* Light Mode (Padrão) */
+    --bg-color: #F7F9FC;
+    --bg-darker: #EFF4F9;
+    --text-color: #141D2E;
+    --text-muted: #5C6B7A;
+    --card-bg: #FFFFFF;
+    --card-border: #C9D6E3;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --accent-color: #1194D4;
+    --button-text: #ffffff;
+    
+    /* Branding Squid */
+    --squid-cyan: #1194D4;
+    --aqua-blue: #1194D4;
+    --squid-glow: rgba(17, 148, 212, 0.5);
 }
+
+[data-theme="dark"] {
+    /* Dark Mode (Ativado via JS) */
+    --bg-color: #0E1535;    /* O azul profundo que você já usava */
+    --bg-darker: #0C112B;
+    --text-color: #F7F9FC;
+    --text-muted: #9BA8B4;
+    --card-bg: #0B1022;
+    --card-border: #151C30;
+    --nav-bg: rgba(0, 7, 25, 0.92);
+    --accent-color: #15C7F4;
+    --button-text: #000000;
+
+    --squid-cyan: #15C7F4;
+    --aqua-blue: #15C7F4;
+    --squid-glow: #15C7F4;
+}
+
+/* Aplicação Global */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Estilização do Botão (Switch) */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 2em;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: white;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    z-index: 5;
+    border-radius: 50%;
+}
+
+input:checked + .slider { background-color: var(--accent-color); }
+input:checked + .slider:before { transform: translateX(26px); }
+
+/* Controle de exibição dos ícones dentro do Switch */
+.slider img {
+    width: 16px;
+    height: 16px;
+    z-index: 1;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.icon-sun { opacity: 0; }
+.icon-moon { opacity: 1; }
+
+[data-theme="dark"] .icon-sun { opacity: 1; }
+[data-theme="dark"] .icon-moon { opacity: 0; }
 
 /* Navigation Bar */
 nav {
-    background-color: #000719eb;
+    background-color: var(--nav-bg);
     position: fixed;
     backdrop-filter: blur(5px);
     width: 100%;
@@ -36,6 +127,8 @@ nav {
     align-items: center;
     justify-content: space-between;
     z-index: 10;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+    border-bottom: 1px solid var(--card-border);
 }
 
 nav img {
@@ -43,10 +136,11 @@ nav img {
 }
 
 #icon-text {
-    color: var(--squid-blue);
+    color: var(--accent-color);
     font-size: 1.2em;
     font-weight: bold;
     cursor: default;
+    transition: color 0.4s ease;
 }
 
 .icon {
@@ -70,15 +164,16 @@ nav ul {
 }
 
 .nav-text a {
-    color: #5D687B;
+    color: var(--text-muted);
     cursor: pointer;
     text-decoration: none;
     font-size: 1em;
     font-weight: 500;
+    transition: color 0.4s ease;
 }
 
 .nav-text a:hover {
-    color: #ffffff;
+    color: var(--accent-color);
     transition: 0.3s;
 }
 
@@ -91,7 +186,8 @@ nav ul {
     height: 100vh;
     padding: 2em 5em;
     gap: 4em;
-    background-color: #0E1535;
+    background-color: var(--bg-color);
+    transition: background-color 0.4s ease;
 }
 
 /* Container da imagem */
@@ -107,37 +203,19 @@ nav ul {
 .landing-image img {
     width: 15em;
     z-index: 1;
-    /* Aplica as duas animações ao mesmo tempo */
     animation: float 6s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
-    /* Filtro para o brilho externo (glow) baseado na cor aqua-blue */
-    filter: drop-shadow(0 0 15px #14B8D4);
+    filter: drop-shadow(0 0 15px var(--squid-glow));
+    transition: filter 0.4s ease;
 }
 
 @keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-25px);
-        /* Flutua um pouco mais */
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-25px); }
 }
 
 @keyframes pulse-glow {
-
-    0%,
-    100% {
-        /* Estado inicial sutil */
-        filter: drop-shadow(0 0 8px rgba(21, 199, 244, 0.25)) drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
-    }
-
-    50% {
-        /* Meio termo: brilho visível, mas sem excesso */
-        filter: drop-shadow(0 0 20px rgba(21, 199, 244, 0.6)) drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
-    }
+    0%, 100% { filter: drop-shadow(0 0 8px var(--squid-glow)) drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)); }
+    50% { filter: drop-shadow(0 0 20px var(--squid-glow)) drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)); }
 }
 
 .landing-content {
@@ -149,8 +227,8 @@ nav ul {
 }
 
 .tag1 {
-    background-color: #14b7d41f;
-    border: solid 0.1vh #15C7F4;
+    background-color: var(--bg-darker);
+    border: solid 0.1vh var(--accent-color);
     height: 6vh;
     width: 18vw;
     border-radius: 30px;
@@ -158,7 +236,8 @@ nav ul {
     justify-content: center;
     align-items: center;
     font-size: 1em;
-    color: #15C7F4;
+    color: var(--accent-color);
+    transition: all 0.4s ease;
 }
 
 .tag1 img {
@@ -172,20 +251,23 @@ nav ul {
 }
 
 #text-div h1 {
-    color: #15C7F4;
-    filter: drop-shadow(0px 0px 20px #15C7F4);
+    color: var(--accent-color);
+    filter: drop-shadow(0px 0px 20px var(--squid-glow));
     font-size: 4em;
+    transition: color 0.4s ease, filter 0.4s ease;
 }
 
 #text-div h2 {
-    color: #9BA8B4;
+    color: var(--text-muted);
     font-size: 1.5em;
     font-family: JetBrains Mono, monospace;
+    transition: color 0.4s ease;
 }
 
 #text-div p {
-    color: #9BA8B4;
+    color: var(--text-muted);
     font-size: 1em;
+    transition: color 0.4s ease;
 }
 
 #text-div div {
@@ -200,8 +282,8 @@ nav ul {
 }
 
 #button1 {
-    transition: 0.3s;
-    background: linear-gradient(90deg, #14B8D4 0%, #22c395 100%);
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, var(--squid-cyan) 0%, #22c395 100%);
     border: none;
     padding: 0.8em 1.2em;
     border-radius: 0.8em;
@@ -221,15 +303,15 @@ nav ul {
 
 #button1 p {
     text-decoration: none;
-    color: black; 
+    color: var(--button-text);
     font-size: 1.2em;
 }
 
 #button2 {
-    transition: 0.3s;
+    transition: all 0.3s ease;
     background: transparent;
-    border: solid 2px #15C7F4;
-    color: white;
+    border: solid 2px var(--accent-color);
+    color: var(--accent-color);
     padding: 0.8em 1.2em;
     border-radius: 0.8em;
     font-size: 1em;
@@ -250,11 +332,12 @@ nav ul {
 #button1:hover {
     filter: brightness(1.1);
     scale: 1.05;
-    box-shadow: #14B8D4 0px 0px 15em
+    box-shadow: var(--squid-glow) 0px 0px 15em;
 }
 
 #button2:hover {
-    background-color: #15C7F4;
+    background-color: var(--accent-color);
+    color: var(--button-text);
     scale: 1.05;
 }
 
@@ -273,22 +356,25 @@ nav ul {
 }
 
 .statistic h3 {
-    color: #15C7F4;
+    color: var(--accent-color);
     font-size: 2.3em;
+    transition: color 0.4s ease;
 }
 
 .statistic p {
-    color: #9BA8B4;
+    color: var(--text-muted);
     font-size: 1em;
+    transition: color 0.4s ease;
 }
 
 /*whats-section*/
 #whats-section {
-    background-color: #0C112B;
+    background-color: var(--bg-darker);
     height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.4s ease;
 }
 
 #whats-content {
@@ -312,26 +398,29 @@ nav ul {
 }
 
 #opening h2 {
-    color: white;
+    color: var(--text-color);
     font-size: 2.5em;
     text-align: center;
+    transition: color 0.4s ease;
 }
 
 #opening h2 span {
-    color: #15C7F4;
+    color: var(--accent-color);
     text-align: center;
+    transition: color 0.4s ease;
 }
 
 #opening p {
-    color: #94A3B8;
+    color: var(--text-muted);
     font-size: 1.2em;
     line-height: 1.5em;
     text-align: center;
+    transition: color 0.4s ease;
 }
 
 #opening button {
     margin-top: 1em;
-    background: linear-gradient(90deg, #14B8D4 0%, #22c395 100%);
+    background: linear-gradient(90deg, var(--squid-cyan) 0%, #22c395 100%);
     border: none;
     padding: 0.8em 1.2em;
     border-radius: 0.8em;
@@ -340,13 +429,14 @@ nav ul {
     cursor: pointer;
     width: 15vw;
     height: 6vh;
-    color: black;
+    color: var(--button-text);
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 #opening button:hover {
     filter: brightness(1.1);
     scale: 1.05;
-    box-shadow: #14B8D4 0px 0px 15em
+    box-shadow: var(--squid-glow) 0px 0px 15em;
 }
 
 #cards {
@@ -359,9 +449,9 @@ nav ul {
 }
 
 .card {
-    background-color: #0B1022;
+    background-color: var(--card-bg);
     border-radius: 1em;
-    border: solid 0.1em #151C30;
+    border: solid 0.1em var(--card-border);
     width: 30em;
     height: 15em;
     display: flex;
@@ -369,8 +459,8 @@ nav ul {
     align-items: start;
     padding: 1.2em;
     gap: 1.5em;
-    box-shadow: 0px 0px 15px #00000050;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .imgDiv {
@@ -379,8 +469,9 @@ nav ul {
     align-items: center;
     width: 4em;
     height: 4em;
-    background-color: #0B2339;
+    background-color: var(--bg-darker);
     border-radius: 1em;
+    transition: background-color 0.4s ease;
 }
 
 .card img {
@@ -394,44 +485,49 @@ nav ul {
 }
 
 .cardTextDiv h4 {
-    color: white;
+    color: var(--text-color);
     font-size: 1.2em;
+    transition: color 0.4s ease;
 }
 
 .cardTextDiv p {
-    color: #94A3B8;
+    color: var(--text-muted);
     font-size: 0.9em;
     line-height: 1.4em;
+    transition: color 0.4s ease;
 }
 
 /*Diferenciais section*/
 #Diferenciais {
-    background-color: #0C112B;
+    background-color: var(--bg-darker);
     height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2em;
+    transition: background-color 0.4s ease;
 }
 
 #DifText h2 {
-    color: white;
+    color: var(--text-color);
     font-size: 2.5em;
     text-align: center;
+    transition: color 0.4s ease;
 }
 
 #DifText h2 span {
-    color: #15C7F4;
+    color: var(--accent-color);
     text-align: center;
-}   
+}
 
 #DifText p {
-    color: #94A3B8;
+    color: var(--text-muted);
     font-size: 1.2em;
     line-height: 1.5em;
     text-align: center;
     margin-bottom: 3em;
+    transition: color 0.4s ease;
 }
 
 #DifCards {
@@ -444,9 +540,9 @@ nav ul {
 }
 
 .cardDif {
-    background-color: #0B1022;
+    background-color: var(--card-bg);
     border-radius: 1em;
-    border: solid 0.1em #151C30;
+    border: solid 0.1em var(--card-border);
     width: 25em;
     height: 18em;
     display: flex;
@@ -454,8 +550,8 @@ nav ul {
     align-items: center;
     padding: 1.2em;
     gap: 1.5em;
-    box-shadow: 0px 0px 15px #00000050;
-    transition: all 0.3s;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
 }
 
 .cardDifImgDiv {
@@ -464,8 +560,9 @@ nav ul {
     align-items: center;
     width: 4em;
     height: 4em;
-    background-color: #0B2339;
+    background-color: var(--bg-darker);
     border-radius: 50%;
+    transition: background-color 0.4s ease;
 }
 
 .cardDifImgDiv img {
@@ -473,15 +570,16 @@ nav ul {
 }
 
 .cardDif p {
-    color: #94A3B8;
+    color: var(--text-muted);
     font-size: 1em;
     text-align: center;
     line-height: 1.4em;
+    transition: color 0.4s ease;
 }
 
 #cardDif1 {
     font-size: 2.3em;
-    color: #15C7F4;
+    color: var(--accent-color);
 }
 
 #cardDif2 {
@@ -490,44 +588,51 @@ nav ul {
 }
 
 .cardDif:hover {
-    border: solid 0.1em #15C7F4;
+    border: solid 0.1em var(--accent-color);
+    transform: translateY(-5px);
 }
 
 table {
     width: 90%;
     border-collapse: collapse;
-    background-color: #0b111ea1;
+    background-color: var(--card-bg);
     border-radius: 8px;
     overflow: hidden;
+    transition: background-color 0.4s ease;
 }
 
-th, td {
+th,
+td {
     padding: 18px;
     text-align: center;
-    border-bottom: 1px solid #1a2333;
+    border-bottom: 1px solid var(--card-border);
     font-size: 14px;
+    transition: border-color 0.4s ease, color 0.4s ease;
 }
 
-th:first-child, td:first-child {
+th:first-child,
+td:first-child {
     text-align: left;
     padding-left: 25px;
-    color: #ffffff;
+    color: var(--text-color);
     font-weight: 500;
 }
 
 thead th {
-    background-color: #0b111e;
-    color: #94a3b8; 
+    background-color: var(--bg-darker);
+    color: var(--text-muted);
     font-size: 12px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    transition: background-color 0.4s ease;
 }
 
 .col-squid {
-    background-color: #0a192f; 
-    color: #4fc3f7 !important; 
+    background-color: var(--bg-darker);
+    color: var(--accent-color) !important;
     font-weight: 600;
     width: 15%;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 table img {
@@ -542,13 +647,14 @@ tr:last-child td {
 
 /*ComoFunciona*/
 #ComoFunciona {
-    background-color: #0C112B;
+    background-color: var(--bg-darker);
     height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2em;
+    transition: background-color 0.4s ease;
 }
 
 #textCF {
@@ -561,42 +667,44 @@ tr:last-child td {
 }
 
 #textCF h2 {
-    color: white;
+    color: var(--text-color);
     font-size: 2.5em;
+    transition: color 0.4s ease;
 }
 
 #textCF h2 span {
-    color: #15C7F4;
+    color: var(--accent-color);
     text-align: center;
 }
 
 #textCF p {
-    color: #94A3B8;
+    color: var(--text-muted);
     font-size: 1.2em;
     line-height: 1.5em;
+    transition: color 0.4s ease;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     max-width: 1200px;
     width: 100%;
 }
 
 .card-tecnologia {
-    background-color: #060b1693;
-    border: 1px solid #162031;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 16px;
     padding: 30px;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     height: 100%;
 }
 
 .card-tecnologia:hover {
     border-color: var(--aqua-blue);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-header-new {
@@ -614,20 +722,22 @@ tr:last-child td {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(21, 199, 244, 0.03);
+    background: var(--bg-darker);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .card-number {
     position: absolute;
     top: -12px;
     right: -12px;
-    background: #060b16;
+    background: var(--card-bg);
     color: var(--aqua-blue);
     font-size: 11px;
     font-weight: 700;
     padding: 2px 8px;
-    border: 1px solid #162031;
+    border: 1px solid var(--card-border);
     border-radius: 4px;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
 .icon-box img {
@@ -649,30 +759,33 @@ tr:last-child td {
 }
 
 .title-row h3 {
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 1.3rem;
     margin: 0;
+    transition: color 0.4s ease;
 }
 
 .card-body-content p {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
+    transition: color 0.4s ease;
 }
 
 .badge-outline {
-    border: 1px solid #1e293b;
+    border: 1px solid var(--card-border);
     color: var(--aqua-blue);
     font-size: 10px;
     padding: 4px 12px;
     border-radius: 20px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    transition: border-color 0.4s ease, color 0.4s ease;
 }
 
 .badge-solid {
-    background-color: #0f172a;
+    background-color: var(--bg-darker);
     color: var(--aqua-blue);
     font-size: 12px;
     padding: 6px 14px;
@@ -680,6 +793,7 @@ tr:last-child td {
     width: fit-content;
     font-weight: 600;
     margin-top: 5px;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 #sr-mechanism {
@@ -691,13 +805,14 @@ tr:last-child td {
     flex-direction: column;
     text-align: center;
     margin-top: 2em;
-    background-color: #060b164f;
+    background-color: var(--card-bg);
     border-radius: 1em;
-    border: solid 0.1em #151C30;
+    border: solid 0.1em var(--card-border);
+    transition: all 0.4s ease;
 }
 
 #sr-mechanism h4 {
-    color: white;
+    color: var(--text-color);
     margin-bottom: 10px;
     text-align: center;
     font-size: 1.2em;
@@ -708,7 +823,7 @@ tr:last-child td {
 }
 
 #sr-mechanism p {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 0.95rem;
     text-align: center;
     width: 80%;
@@ -716,13 +831,14 @@ tr:last-child td {
 
 /*Futuro do projeto Section*/
 #Futuro {
-    background-color: #0C112B;
+    background-color: var(--bg-darker);
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2em;
+    transition: background-color 0.4s ease;
 }
 
 #textF {
@@ -735,19 +851,21 @@ tr:last-child td {
 }
 
 #textF h2 {
-    color: white;
+    color: var(--text-color);
     font-size: 2.5em;
+    transition: color 0.4s ease;
 }
 
 #textF h2 span {
-    color: #15C7F4;
+    color: var(--accent-color);
     text-align: center;
 }
 
 #textF p {
-    color: #94A3B8;
+    color: var(--text-muted);
     font-size: 1.2em;
     line-height: 1.5em;
+    transition: color 0.4s ease;
 }
 
 .roadmap-container {
@@ -760,8 +878,8 @@ tr:last-child td {
 }
 
 .roadmap-card {
-    background-color: #060b168e;
-    border: 1px solid #162031;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
     padding: 30px 20px;
     position: relative;
@@ -769,8 +887,8 @@ tr:last-child td {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    overflow: hidden; 
-    transition: transform 0.3s ease;
+    overflow: hidden;
+    transition: all 0.4s ease;
 }
 
 .roadmap-card:hover {
@@ -784,13 +902,13 @@ tr:last-child td {
     right: 15px;
     font-size: 5rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.03); 
+    color: rgba(0, 0, 0, 0.03);
     line-height: 1;
     z-index: 0;
 }
 
 .roadmap-icon {
-    background-color: rgba(21, 199, 244, 0.05);
+    background-color: var(--bg-darker);
     border-radius: 10px;
     width: 50px;
     height: 50px;
@@ -798,31 +916,34 @@ tr:last-child td {
     align-items: center;
     justify-content: center;
     z-index: 1;
+    transition: background-color 0.4s ease;
 }
 
 .roadmap-icon img {
     width: 28px;
     height: 28px;
-    filter: invert(65%) sepia(91%) saturate(1832%) hue-rotate(159deg) brightness(101%) contrast(92%); 
+    filter: invert(45%) sepia(91%) saturate(1832%) hue-rotate(159deg) brightness(101%) contrast(92%);
 }
 
 .roadmap-card h4 {
-    color: white;
+    color: var(--text-color);
     font-size: 1.2rem;
     font-weight: 600;
     z-index: 1;
+    transition: color 0.4s ease;
 }
 
 .roadmap-card p {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.5;
     z-index: 1;
+    transition: color 0.4s ease;
 }
 
 /*Interesse*/
 #interesse {
-    background-color: #0B1C27; /* Cor de fundo escura */
+    background-color: var(--bg-color);
     padding: 100px 20px;
     display: flex;
     flex-direction: column;
@@ -830,6 +951,7 @@ tr:last-child td {
     justify-content: center;
     text-align: center;
     gap: 30px;
+    transition: background-color 0.4s ease;
 }
 
 /* Tag superior arredondada */
@@ -837,25 +959,27 @@ tr:last-child td {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: rgba(21, 199, 244, 0.05);
-    border: 1px solid rgba(21, 199, 244, 0.3);
+    background-color: var(--bg-darker);
+    border: 1px solid var(--card-border);
     padding: 8px 20px;
     border-radius: 50px;
     color: var(--aqua-blue);
     font-size: 0.9rem;
     font-weight: 500;
+    transition: all 0.4s ease;
 }
 
 .tag-open-source img {
     width: 16px;
-    filter: invert(65%) sepia(91%) saturate(1832%) hue-rotate(159deg);
+    filter: invert(45%) sepia(91%) saturate(1832%) hue-rotate(159deg);
 }
 
 /* Títulos e textos */
 .interesse-text h3 {
-    color: white;
+    color: var(--text-color);
     font-size: 2.5rem;
     margin-bottom: 15px;
+    transition: color 0.4s ease;
 }
 
 .interesse-text h3 span {
@@ -863,10 +987,11 @@ tr:last-child td {
 }
 
 .interesse-text p {
-    color: #94a3b8;
+    color: var(--text-muted);
     max-width: 700px;
     line-height: 1.6;
     font-size: 1.1rem;
+    transition: color 0.4s ease;
 }
 
 /* Container de botões */
@@ -890,14 +1015,13 @@ tr:last-child td {
 
 /* Botão Entrar em Contato (Ciano Sólido/Gradiente) */
 .btn-contato {
-    background: #15c7f4;
-    color: #0c112b;
+    background: var(--accent-color);
+    color: var(--button-text);
 }
 
 .btn-contato img {
     width: 20px;
-    /* Ajuste para ícone escuro */
-    filter: brightness(0);
+    filter: brightness(1);
 }
 
 .btn-contato:hover {
@@ -908,23 +1032,24 @@ tr:last-child td {
 /* Botão Ver no GitHub (Outline) */
 .btn-github {
     background: transparent;
-    border: 1px solid #15c7f4;
-    color: white;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
 }
 
 .btn-github:hover {
-    background: rgba(21, 199, 244, 0.1);
+    background: var(--bg-darker);
     transform: translateY(-3px);
 }
 
 /* --- SEÇÃO TECNOLOGIA --- */
 #tecnologia {
-    background-color: #0C112B;
+    background-color: var(--bg-darker);
     padding: 5rem 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4rem;
+    transition: background-color 0.4s ease;
 }
 
 .tecnologia-header {
@@ -933,8 +1058,9 @@ tr:last-child td {
 
 .tecnologia-header h3 {
     font-size: clamp(2rem, 5vw, 2.8rem);
-    color: white;
+    color: var(--text-color);
     margin-bottom: 1rem;
+    transition: color 0.4s ease;
 }
 
 .tecnologia-header h3 span {
@@ -942,8 +1068,9 @@ tr:last-child td {
 }
 
 .tecnologia-header p {
-    color: var(--light-text);
+    color: var(--text-muted);
     font-size: 1.1rem;
+    transition: color 0.4s ease;
 }
 
 /* Grid da Stack */
@@ -960,8 +1087,10 @@ tr:last-child td {
     flex-direction: column;
     padding: 1em;
     gap: 1rem;
-    background-color: #000719eb;
+    background-color: var(--card-bg);
     border-radius: 1em;
+    border: 1px solid var(--card-border);
+    transition: all 0.4s ease;
 }
 
 .stack-category h5 {
@@ -971,14 +1100,15 @@ tr:last-child td {
 }
 
 .stack-item {
-    background: rgba(15, 21, 59, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-darker);
+    border: 1px solid var(--card-border);
     border-radius: 0.75rem;
     padding: 1.2rem;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    transition: all 0.4s ease;
 }
 
 .stack-item .dot {
@@ -990,20 +1120,22 @@ tr:last-child td {
 }
 
 .stack-item h6 {
-    color: white;
+    color: var(--text-color);
     font-size: 1rem;
     margin-bottom: 0.2rem;
+    transition: color 0.4s ease;
 }
 
 .stack-item p {
-    color: var(--light-text);
+    color: var(--text-muted);
     font-size: 0.85rem;
+    transition: color 0.4s ease;
 }
 
 /* Card de IA */
 .ia-card {
-    background: rgba(6, 11, 22, 0.4);
-    border: 1px solid rgba(21, 199, 244, 0.2);
+    background: var(--card-bg);
+    border: 1px solid var(--accent-color);
     border-radius: 1.2rem;
     padding: 2.5rem;
     max-width: 80rem;
@@ -1011,16 +1143,18 @@ tr:last-child td {
     display: flex;
     align-items: center;
     gap: 2.5rem;
-    flex-wrap: wrap; /* Ajuste para mobile */
+    flex-wrap: wrap;
+    transition: all 0.4s ease;
 }
 
 .ia-icon-box {
-    background: rgba(21, 199, 244, 0.05);
+    background: var(--bg-darker);
     border-radius: 1rem;
     padding: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.4s ease;
 }
 
 .ia-icon-box img {
@@ -1034,15 +1168,17 @@ tr:last-child td {
 }
 
 .ia-content h4 {
-    color: white;
+    color: var(--text-color);
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    transition: color 0.4s ease;
 }
 
 .ia-content p {
-    color: var(--light-text);
+    color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    transition: color 0.4s ease;
 }
 
 .ia-tags {
@@ -1052,10 +1188,11 @@ tr:last-child td {
 }
 
 .ia-tags span {
-    border: 1px solid rgba(21, 199, 244, 0.3);
+    border: 1px solid var(--card-border);
     color: var(--aqua-blue);
     padding: 0.4rem 1rem;
     border-radius: 2rem;
     font-size: 0.85rem;
-    background: rgba(21, 199, 244, 0.02);
+    background: var(--bg-darker);
+    transition: all 0.4s ease;
 }
