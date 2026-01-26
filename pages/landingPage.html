@@ -111,79 +111,82 @@
         </section>
 
         <section id="Diferenciais">
-            <div>
+            <div id="DifText">
                 <h2>Diferenciais do <span>SQUID</span></h2>
                 <p>Comparação com sistemas tradicionais de segurança</p>
             </div>
-            <div>
-                <div>
-                    <div>
+            <div id="DifCards">
+                <div class="cardDif">
+                    <div class="cardDifImgDiv">
                         <div><img src="../assets/images/landingPage/evo.svg" alt="Evolution"></div>
                     </div>
-                    <h3>+125%</h3>
+                    <h3 id="cardDif1">+125%</h3>
                     <p>Mais seguro que sistemas tradicionais em média</p>
                 </div>
-                <div>
-                    <div>
+                <div class="cardDif">
+                    <div class="cardDifImgDiv">
                         <div><img src="../assets/images/landingPage/speed.svg" alt="Speed"></div>
                     </div>
-                    <h3>+20%</h3>
+                    <h3 id="cardDif2">+20%</h3>
                     <p>Custo de processamento adicional (trade-off justificável)</p>
                 </div>
             </div>
             <table>
-                <tr>
-                    <th>Recurso</th>
-                    <th>SQUID</th>
-                    <th>TLS</th>
-                    <th>PGP</th>
-                    <th>JWT</th>
-                    <th>Blockchain</th>
-                </tr>
-                <tr>
-                    <th>Segurança Pós-Quântica Nativa</th>
-                    <th><img src="../assets/images/landingPage/check.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                </tr>
-                <tr>
-                    <th>Ofuscação Probabilística Dinâmica</th>
-                    <th><img src="../assets/images/landingPage/check.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                </tr>
-                <tr>
-                    <th>Auditoria Leve (Merkle)</th>
-                    <th><img src="../assets/images/landingPage/check.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/check2.svg" alt="Check"></th>
-                </tr>
-                <tr>
-                    <th>Integração IA</th>
-                    <th><img src="../assets/images/landingPage/check.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                    <th><img src="../assets/images/landingPage/negative.svg" alt="Negative"></th>
-                </tr>
-                <tr>
-                    <th>Interoperabilidade Java ↔ Python</th>
-                    <th><img src="../assets/images/landingPage/check.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/check2.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/check2.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/check2.svg" alt="Check"></th>
-                    <th><img src="../assets/images/landingPage/check2.svg" alt="Check"></th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Recurso</th>
+                        <th class="col-squid">SQUID</th>
+                        <th>TLS</th>
+                        <th>PGP</th>
+                        <th>JWT</th>
+                        <th>Blockchain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segurança Pós-Quântica Nativa</td>
+                        <td class="col-squid"><img src="../assets/images/landingPage/check.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                    </tr>
+                    <tr>
+                        <td>Ofuscação Probabilística Dinâmica</td>
+                        <td class="col-squid"><img src="../assets/images/landingPage/check.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                    </tr>
+                    <tr>
+                        <td>Auditoria Leve (Merkle)</td>
+                        <td class="col-squid"><img src="../assets/images/landingPage/check.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/check2.svg" alt="Check"></td>
+                    </tr>
+                    <tr>
+                        <td>Integração IA</td>
+                        <td class="col-squid"><img src="../assets/images/landingPage/check.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                        <td><img src="../assets/images/landingPage/negative.svg" alt="Negative"></td>
+                    </tr>
+                    <tr>
+                        <td>Interoperabilidade Java ↔ Python</td>
+                        <td class="col-squid"><img src="../assets/images/landingPage/check.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/check2.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/check2.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/check2.svg" alt="Check"></td>
+                        <td><img src="../assets/images/landingPage/check2.svg" alt="Check"></td>
+                    </tr>
+                </tbody>
             </table>
         </section>
 
-        <!--
         <section id="ComoFunciona">
             <div>
                 <h2>Como o <span>SQUID</span> Funciona</h2>
@@ -250,6 +253,7 @@
             </div>
         </section>
 
+        <!--
         <section id="Futuro">
             <div>
                 <h2>Futuro do <span>Projeto</span></h2>

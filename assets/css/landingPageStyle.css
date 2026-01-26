@@ -279,7 +279,7 @@ nav ul {
 /*whats-section*/
 #whats-section {
     background-color: #0C112B;
-    height: 80vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -396,4 +396,140 @@ nav ul {
     color: #94A3B8;
     font-size: 0.9em;
     line-height: 1.4em;
+}
+
+/*Diferenciais section*/
+#Diferenciais {
+    background-color: #0C112B;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+
+#DifText h2 {
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+#DifText h2 span {
+    color: #15C7F4;
+    text-align: center;
+}   
+
+#DifText p {
+    color: #94A3B8;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+#DifCards {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+    justify-content: center;
+    width: 90vw;
+    align-items: center;
+}
+
+.cardDif {
+    background-color: #0B1022;
+    border-radius: 1em;
+    border: solid 0.1em #151C30;
+    width: 25em;
+    height: 18em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2em;
+    gap: 1.5em;
+    box-shadow: 0px 0px 15px #00000050;
+    transition: all 0.3s;
+}
+
+.cardDifImgDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 4em;
+    background-color: #0B2339;
+    border-radius: 50%;
+}
+
+.cardDifImgDiv img {
+    height: 2.5em;
+}
+
+.cardDif p {
+    color: #94A3B8;
+    font-size: 1em;
+    text-align: center;
+    line-height: 1.4em;
+}
+
+#cardDif1 {
+    font-size: 2.3em;
+    color: #15C7F4;
+}
+
+#cardDif2 {
+    font-size: 2.3em;
+    color: #22C3C3;
+}
+
+.cardDif:hover {
+    border: solid 0.1em #15C7F4;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    background-color: #0b111ea1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid #1a2333;
+    font-size: 14px;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+    padding-left: 25px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+thead th {
+    background-color: #0b111e;
+    color: #94a3b8; 
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.col-squid {
+    background-color: #0a192f; 
+    color: #4fc3f7 !important; 
+    font-weight: 600;
+    width: 15%;
+}
+
+table img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.9;
+}
+
+tr:last-child td {
+    border-bottom: none;
 }
