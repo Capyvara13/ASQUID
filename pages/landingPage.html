@@ -188,72 +188,89 @@
         </section>
 
         <section id="ComoFunciona">
-            <div>
+            <div id="textCF">
                 <h2>Como o <span>SQUID</span> Funciona</h2>
                 <p>Arquitetura modular com quatro camadas de proteção integradas</p>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <div>01</div>
-                        <img src="../assets/images/landingPage/key.svg" alt="">
-                    </div>
-                    <div>
-                        <h3>Camada KEM</h3>
-                        <div>Geração de Chaves</div>
-                        <p>Geração de chaves pós-quânticas usando Kyber para estabelecimento seguro de sessão.</p>
-                        <div>Kyber-768</div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div>02</div>
-                        <img src="../assets/images/landingPage/doc.svg" alt="">
-                    </div>
-                    <div>
-                        <h3>Camada de Assinatura</h3>
-                        <div>Autenticação</div>
-                        <p>Autenticação e integridade através de assinaturas digitais resistentes a ataques quânticos.
-                        </p>
-                        <div>Dilithium / SPHINCS+</div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div>03</div>
-                        <img src="../assets/images/landingPage/memory.svg" alt="">
-                    </div>
-                    <div>
-                        <h3>Simulação Quântica</h3>
-                        <div>IA Probabilística</div>
-                        <p>Criação de estados probabilísticos via IA para ofuscação dinâmica dos dados.</p>
-                        <div>PyTorch + SR/C</div>
+
+            <div class="grid-container">
+                <div class="card-tecnologia">
+                    <div class="card-header-new">
+                        <div class="icon-box">
+                            <span class="card-number">01</span>
+                            <img src="../assets/images/landingPage/key.svg" alt="Key">
+                        </div>
+                        <div class="card-body-content">
+                            <div class="title-row">
+                                <h3>Camada KEM</h3>
+                                <span class="badge-outline">Geração de Chaves</span>
+                            </div>
+                            <p>Geração de chaves pós-quânticas usando Kyber para estabelecimento seguro de sessão.</p>
+                            <span class="badge-solid">Kyber-768</span>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <div>
-                        <div>03</div>
-                        <img src="../assets/images/landingPage/park.svg" alt="">
-                    </div>
-                    <div>
-                        <h3>Auditoria</h3>
-                        <div>Merkle Trees</div>
-                        <p>Rastreabilidade completa e validação de integridade através de árvores de hash.</p>
-                        <div>SHA-256</div>
+                <div class="card-tecnologia">
+                    <div class="card-header-new">
+                        <div class="icon-box">
+                            <span class="card-number">02</span>
+                            <img src="../assets/images/landingPage/doc.svg" alt="Signature">
+                        </div>
+                        <div class="card-body-content">
+                            <div class="title-row">
+                                <h3>Camada de Assinatura</h3>
+                                <span class="badge-outline">Autenticação</span>
+                            </div>
+                            <p>Autenticação e integridade através de assinaturas digitais resistentes a ataques
+                                quânticos.</p>
+                            <span class="badge-solid">Dilithium / SPHINCS+</span>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <h4>Mecanismo <span>Super-Relação (SR)</span> e <span>Coeficiente de Correlação (C)</span></h4>
-                    <p>O SR e C são variáveis matemáticas que influenciam as variações de estado probabilístico, criando
-                        padrões imprevisíveis que reforçam a ofuscação dos dados e tornam ataques de força bruta
-                        computacionalmente inviáveis.</p>
+                <div class="card-tecnologia">
+                    <div class="card-header-new">
+                        <div class="icon-box">
+                            <span class="card-number">03</span>
+                            <img src="../assets/images/landingPage/memory.svg" alt="Simulação">
+                        </div>
+                        <div class="card-body-content">
+                            <div class="title-row">
+                                <h3>Simulação Quântica</h3>
+                                <span class="badge-outline">IA Probabilística</span>
+                            </div>
+                            <p>Criação de estados probabilísticos via IA para ofuscação dinâmica dos dados.</p>
+                            <span class="badge-solid">PyTorch + SR/C</span>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="card-tecnologia">
+                    <div class="card-header-new">
+                        <div class="icon-box">
+                            <span class="card-number">04</span>
+                            <img src="../assets/images/landingPage/park.svg" alt="Auditoria">
+                        </div>
+                        <div class="card-body-content">
+                            <div class="title-row">
+                                <h3>Auditoria</h3>
+                                <span class="badge-outline">Merkle Trees</span>
+                            </div>
+                            <p>Rastreabilidade completa e validação de integridade através de árvores de hash.</p>
+                            <span class="badge-solid">SHA-256</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sr-mechanism">
+                <h4>Mecanismo <span>Super-Relação (SR)</span> e <span>Coeficiente de Correlação (C)</span></h4>
+                <p>O SR e C são variáveis matemáticas que influenciam as variações de estado probabilístico, criando
+                    padrões imprevisíveis que reforçam a ofuscação dos dados.</p>
             </div>
         </section>
 
-        <!--
         <section id="Futuro">
             <div>
                 <h2>Futuro do <span>Projeto</span></h2>
@@ -291,6 +308,7 @@
             </div>
         </section>
 
+        <!--
         <section id="interesse">
             <div><img src="../assets/images/landingPage/shiny.svg" alt="">Projeto em Desenvolvimento</div>
             <div>

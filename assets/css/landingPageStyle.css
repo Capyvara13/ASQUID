@@ -5,6 +5,12 @@
     --nav-text: #5D687B; /*Nav Bar text*/
     --light-text: #94A3B8; /*Content text*/
     --dark-blue: #0F153B; /*Background*/
+    
+    --bg-color: #050a12;
+    --card-bg: #0a111e;
+    --accent-cyan: #00bcd4;
+    --text-gray: #a0aec0;
+    --border-color: #1a2638;
 }
 
 * {
@@ -532,4 +538,178 @@ table img {
 
 tr:last-child td {
     border-bottom: none;
+}
+
+/*ComoFunciona*/
+#ComoFunciona {
+    background-color: #0C112B;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+
+#textCF {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    text-align: center;
+}
+
+#textCF h2 {
+    color: white;
+    font-size: 2.5em;
+}
+
+#textCF h2 span {
+    color: #15C7F4;
+    text-align: center;
+}
+
+#textCF p {
+    color: #94A3B8;
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card-tecnologia {
+    background-color: #060b1693;
+    border: 1px solid #162031;
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.card-tecnologia:hover {
+    border-color: var(--aqua-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-header-new {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.icon-box {
+    position: relative;
+    min-width: 80px;
+    height: 80px;
+    border: 1.5px solid var(--aqua-blue);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(21, 199, 244, 0.03);
+}
+
+.card-number {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #060b16;
+    color: var(--aqua-blue);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border: 1px solid #162031;
+    border-radius: 4px;
+}
+
+.icon-box img {
+    width: 35px;
+    height: 35px;
+}
+
+.card-body-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.title-row h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.card-body-content p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.badge-outline {
+    border: 1px solid #1e293b;
+    color: var(--aqua-blue);
+    font-size: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-solid {
+    background-color: #0f172a;
+    color: var(--aqua-blue);
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    width: fit-content;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+#sr-mechanism {
+    width: 60%;
+    height: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 2em;
+    background-color: #060b164f;
+    border-radius: 1em;
+    border: solid 0.1em #151C30;
+}
+
+#sr-mechanism h4 {
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#sr-mechanism span {
+    color: var(--aqua-blue);
+}
+
+#sr-mechanism p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    text-align: center;
+    width: 80%;
 }
