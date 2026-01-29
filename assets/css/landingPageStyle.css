@@ -159,8 +159,31 @@ nav ul {
     align-items: center;
     justify-content: center;
     gap: 2em;
-    width: 50%;
     margin-right: 2em;
+}
+
+/* Hamburger button (hidden on desktop) */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    margin-right: 1em;
+}
+.hamburger:focus { outline: none; }
+.hamburger .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-color);
+    margin: 4px 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Mobile menu hidden by transform; when .open it slides in */
+.nav-links {
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-text a {
@@ -202,6 +225,7 @@ nav ul {
 /* A Imagem com flutuação e brilho */
 .landing-image img {
     width: 15em;
+    max-width: 90%;
     z-index: 1;
     animation: float 6s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
     filter: drop-shadow(0 0 15px var(--squid-glow));
@@ -230,7 +254,9 @@ nav ul {
     background-color: var(--bg-darker);
     border: solid 0.1vh var(--accent-color);
     height: 6vh;
-    width: 18vw;
+    width: auto;
+    max-width: 18rem;
+    padding: 0 1.2em;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -293,8 +319,9 @@ nav ul {
     display: flex;
     align-items: center;
     gap: 0.8em;
-    width: 20vw;
-    height: 7vh;
+    min-width: 140px;
+    max-width: 100%;
+    height: 48px;
 }
 
 #button1 img {
@@ -320,8 +347,9 @@ nav ul {
     display: flex;
     align-items: center;
     gap: 0.8em;
-    width: 10vw;
-    height: 7vh;
+    min-width: 110px;
+    max-width: 100%;
+    height: 48px;
     text-decoration: none;
 }
 
@@ -427,8 +455,9 @@ nav ul {
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
-    width: 15vw;
-    height: 6vh;
+    min-width: 140px;
+    max-width: 100%;
+    height: 44px;
     color: var(--button-text);
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -1196,3 +1225,276 @@ tr:last-child td {
     background: var(--bg-darker);
     transition: all 0.4s ease;
 }
+
+#contato {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+#contato h6 {
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+#contato h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+#contato > p {
+    max-width: 600px;
+    margin-bottom: 50px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Container do Formulário */
+form {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinhamento à esquerda como na imagem */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+/* Header interno do formulário */
+form div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+form div:first-child h4 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+/* Estilo dos Inputs e Labels */
+form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+form input[type="email"],
+form input[type="text"] {
+    width: 100%;
+    background-color: var(--bg-darker); /* Fundo mais escuro que o card */
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 15px;
+    color: var(--text-color);
+    font-family: inherit;
+    margin-bottom: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: var(--accent-color);
+}
+
+/* Textarea simulation (seu HTML usa input para a mensagem) */
+#text {
+    height: 150px; /* Aumentado para parecer com a imagem */
+    padding-top: 15px;
+}
+
+/* Botão Enviar (Gradiente da Imagem) */
+form button {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(90deg, #15C7F4 0%, #22c395 100%);
+    color: #000; /* Texto escuro como no print */
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(21, 199, 244, 0.3);
+}
+
+form button img {
+    width: 20px;
+    filter: brightness(0); /* Ícone preto para contrastar com o fundo claro do botão */
+}
+
+form p:last-child {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+}
+
+/* Ajustes específicos para Dark Mode */
+[data-theme="dark"] form {
+    background-color: #0B1022;
+    border-color: #1A233A;
+}
+
+[data-theme="dark"] form input {
+    background-color: #080C1A;
+    border-color: #151C30;
+}
+
+/* --- ESTILO FOOTER SQUID (BASEADO NA IMAGEM) --- */
+
+#main-footer {
+    background-color: var(--bg-color); /* Fundo acompanhando a seção anterior ou o body */
+    padding: 80px 10% 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.4s ease;
+}
+
+.footer-top-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+/* Branding (Logo + Texto) */
+.footer-branding {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-squid-icon {
+    height: 3.5rem;
+}
+
+.footer-title-group .footer-brand-name {
+    color: var(--aqua-blue);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.footer-tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Ações (Ícones da Direita) */
+.footer-actions {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.footer-link-icon img {
+    height: 1.8rem;
+    filter: var(--social-icon-filter); /* Usa sua lógica de inversão para Dark Mode */
+    transition: transform 0.3s ease, filter 0.3s ease;
+    opacity: 0.8;
+}
+
+.footer-link-icon:hover img {
+    transform: translateY(-3px);
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--accent-color)) var(--social-icon-filter);
+}
+
+/* Linha e Copyright */
+.footer-line {
+    width: 100%;
+    max-width: 1200px;
+    border: none;
+    border-top: 1px solid var(--card-border);
+    opacity: 0.3;
+    margin-bottom: 30px;
+}
+
+.footer-copy {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Responsive overrides */
+@media (max-width: 1024px) {
+    .landing-section { padding: 2em 3em; gap: 2.5em; }
+    #text-div h1 { font-size: 3rem; }
+    #text-div h2 { font-size: 1.25rem; }
+    #whats-content img { width: 22rem; max-width: 100%; height: auto; }
+    .card { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    nav { padding: 0 1em; }
+    .landing-section { padding: 3em 1em; flex-direction: column-reverse; height: auto; }
+    .landing-image { height: auto; margin-bottom: 1.5em; }
+    .landing-image img { width: 12rem; max-width: 70%; }
+    #text-div h1 { font-size: 2.6rem; }
+    #text-div h2 { font-size: 1.05rem; }
+    #text-div div { flex-direction: column; width: 100%; }
+    #button1, #button2 { width: 100% !important; min-width: 0; }
+    #cards { display: grid; grid-template-columns: 1fr; gap: 1.5em; padding: 0 1em; }
+    .card { width: 100%; height: auto; }
+    #sr-mechanism { width: 95%; }
+
+    /* Mobile slide-in panel for nav */
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 3.9em;
+        right: 0;
+        height: calc(100% - 3.9em);
+        width: 75%;
+        max-width: 320px;
+        background-color: var(--nav-bg);
+        backdrop-filter: blur(6px);
+        flex-direction: column;
+        gap: 1.2em;
+        padding: 2em;
+        transform: translateX(100%);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+        z-index: 20;
+    }
+
+    .nav-links.open { transform: translateX(0); }
+    .nav-links .nav-text a { color: var(--text-color); font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+    #text-div h1 { font-size: 2.2rem; }
+    .tag1 { width: 90vw; font-size: 0.85rem; }
+    .footer-top-container { padding: 0 1em; }
+    #whats-content { padding: 2em; }
+    .ia-card { padding: 1.5rem; }
+}
+

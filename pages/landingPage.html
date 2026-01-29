@@ -17,6 +17,11 @@
                 <p id="icon-text">S.Q.U.I.D</p>
             </div>
         </a>
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
         <ul class="nav-links">
             <li class="nav-text"><a href="#whats-section">O que é</a></li>
             <li class="nav-text"><a href="#Diferenciais">Diferenciais</a></li>
@@ -452,13 +457,12 @@
             </div>
         </section>
 
-        <!--
         <section id="contato">
             <div>
                 <h6>CONTATO</h6>
                 <h2>Entre em <span>Contato</span></h2>
-                <p>Interessado no projeto SQUID? Envie sua mensagem e nossa equipe entrará em contato para discutir
-                    parcerias, colaborações ou dúvidas técnicas.</p>
+                <p style="margin-bottom: 1rem;">Interessado no projeto SQUID? Envie sua mensagem e nossa equipe entrará
+                    em contato para discutir parcerias, colaborações ou dúvidas técnicas.</p>
             </div>
 
             <form action="sendMensage" method="post">
@@ -478,17 +482,32 @@
         </section>
     </main>
 
-    <footer>
-        <div>
-            <img src="../assets/images/ico/S-squid.ico" alt="">
-            <p>SQUID</p><br>
-            <p>Simulação Quântica Inspirada para Defesa de Dados</p>
+    <footer id="main-footer">
+    <div class="footer-top-container">
+        <div class="footer-branding">
+            <img src="../assets/images/ico/S-squid.ico" alt="SQUID Logo" class="footer-squid-icon">
+            <div class="footer-title-group">
+                <p class="footer-brand-name">SQUID</p>
+                <p class="footer-tagline">Simulação Quântica Inspirada para Defesa de Dados</p>
+            </div>
         </div>
 
-        <div><a href="https://github.com/Capyvara13/ASQUID"><img src="../assets/images/landingPage/github.ico" alt=""></a></div>
-        <hr>
-        <h3>© 2026 SQUID Project. Segurança pós-quântica para o futuro digital.</h3>
-    </footer>
+        <div class="footer-actions">
+            <a href="https://github.com/Capyvara13/ASQUID" target="_blank" class="footer-link-icon">
+                <img src="../assets/images/landingPage/github2.ico" alt="GitHub">
+            </a>
+            <a href="#contato" class="footer-link-icon">
+                <img src="../assets/images/landingPage/email2.svg" alt="Contato"> 
+            </a>
+        </div>
+    </div>
+
+    <hr class="footer-line">
+
+    <div class="footer-bottom">
+        <h3 class="footer-copy">© 2026 SQUID Project. Segurança pós-quântica para o futuro digital.</h3>
+    </div>
+</footer>
 </body>
 
 </html>
