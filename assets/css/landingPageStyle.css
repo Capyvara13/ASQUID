@@ -432,6 +432,10 @@ nav ul {
     transition: color 0.4s ease;
 }
 
+[data-theme="dark"] #opening h2 {
+    color: var(--text-color);
+}
+
 #opening h2 span {
     color: var(--accent-color);
     text-align: center;
