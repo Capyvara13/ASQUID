@@ -1295,7 +1295,8 @@ form label {
 }
 
 form input[type="email"],
-form input[type="text"] {
+form input[type="text"],
+form textarea {
     width: 100%;
     background-color: var(--bg-darker); /* Fundo mais escuro que o card */
     border: 1px solid var(--card-border);
@@ -1306,16 +1307,24 @@ form input[type="text"] {
     margin-bottom: 25px;
     outline: none;
     transition: border-color 0.3s ease;
+    line-height: 1.35;
+    resize: vertical;
+    overflow-y: auto;
 }
 
 form input:focus {
     border-color: var(--accent-color);
 }
 
-/* Textarea simulation (seu HTML usa input para a mensagem) */
+/* Estilo do campo de mensagem (agora textarea) */
 #text {
-    height: 150px; /* Aumentado para parecer com a imagem */
-    padding-top: 15px;
+    min-height: 150px; /* Aumentado para parecer com a imagem */
+    max-height: 320px; /* Limite antes de exibir scroll */
+    padding-top: 8px;
+    padding-bottom: 8px;
+    overflow-y: auto;
+    vertical-align: top;
+    box-sizing: border-box;
 }
 
 /* Botão Enviar (Gradiente da Imagem) */
@@ -1361,7 +1370,8 @@ form p:last-child {
     border-color: #1A233A;
 }
 
-[data-theme="dark"] form input {
+[data-theme="dark"] form input,
+[data-theme="dark"] form textarea {
     background-color: #080C1A;
     border-color: #151C30;
 }

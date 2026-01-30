@@ -46,6 +46,13 @@ try {
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
+    // Previne envio ao apertar Enter em campos (Enter deve inserir nova linha apenas no textarea)
+    contactForm.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.target && e.target.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+        }
+    });
+
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
